@@ -20,7 +20,34 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeScrollAnimations();
     initializeNavigation();
     initializeScrollListener();
+    fixMobileViewport();
 });
+
+// Fix mobile viewport and zoom issues
+function fixMobileViewport() {
+    // Prevent zoom on input focus
+    const inputs = document.querySelectorAll('input, textarea, select');
+    inputs.forEach(input => {
+        input.addEventListener('focus', function() {
+            const viewport = document.querySelector('meta[name="viewport"]');
+            viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
+        });
+        
+        input.addEventListener('blur', function() {
+            const viewport = document.querySelector('meta[name="viewport"]');
+            viewport.setAttribute('content', 'width=device-width, initial-scale=1.0');
+        });
+    });
+    
+    // Fix height issues on mobile
+    function updateViewportHeight() {
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+    
+    updateViewportHeight();
+    window.addEventListener('resize', updateViewportHeight);
+}
 
 // Gallery Initialization
 function initializeGallery() {
@@ -39,9 +66,15 @@ function initializeGallery() {
     
     // Close lightbox on ESC key
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeLightbox();
-        if (e.key === 'ArrowLeft') navigateGallery(-1);
-        if (e.key === 'ArrowRight') navigateGallery(1);
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+            closeLightbox();
+        }
+        if (e.key === 'ArrowLeft' && lightbox.classList.contains('active')) {
+            navigateGallery(-1);
+        }
+        if (e.key === 'ArrowRight' && lightbox.classList.contains('active')) {
+            navigateGallery(1);
+        }
     });
     
     // Close lightbox on background click
@@ -93,7 +126,7 @@ function initializeScrollAnimations() {
     });
 }
 
-// Navigation
+// Navigation - Updated for new order: Home, Gallery (center), About
 function initializeNavigation() {
     // Mobile Navigation
     mobileNavItems.forEach(item => {
@@ -171,8 +204,9 @@ function initializeScrollListener() {
     window.addEventListener('scroll', requestTick);
 }
 
+// Updated section order: home, gallery, about, contact
 function updateActiveNavOnScroll() {
-    const sections = ['home', 'about', 'gallery', 'contact'];
+    const sections = ['home', 'gallery', 'about', 'contact'];
     const scrollPosition = window.scrollY + 100;
     
     let activeSection = 'home';
@@ -293,3 +327,17 @@ function logPerformance() {
 }
 
 logPerformance();
+
+// Fix mobile touch and zoom issues
+document.addEventListener('touchstart', function() {}, {passive: true});
+document.addEventListener('touchmove', function() {}, {passive: true});
+
+// Prevent double-tap zoom
+let lastTouchEnd = 0;
+document.addEventListener('touchend', function(event) {
+    const now = (new Date()).getTime();
+    if (now - lastTouchEnd <= 300) {
+        event.preventDefault();
+    }
+    lastTouchEnd = now;
+}, false);
