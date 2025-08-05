@@ -3,24 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shree Jagadamba School - शिक्षा का मंदिर</title>
+    <title>श्री जगदम्बा स्कूल - शिक्षा का मंदिर</title>
+    <link rel="icon" href="Photoes/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Desktop Header -->
-    <header class="desktop-header" id="desktop-header">
+
+    <!-- Unified Responsive Header -->
+    <header class="main-header" id="main-header">
         <div class="header-container">
             <div class="logo">
+                <img src="Photoes/logo.png" alt="श्री जगदम्बा स्कूल लोगो" class="logo-img">
                 <h2>श्री जगदम्बा स्कूल</h2>
             </div>
-            <nav class="desktop-nav">
+            <nav class="main-nav" id="main-nav">
                 <a href="#home" class="nav-link active">होम</a>
-                <a href="#gallery" class="nav-link">गैलरी</a>
                 <a href="#about" class="nav-link">हमारे बारे में</a>
+                <a href="#gallery" class="nav-link">गैलरी</a>
                 <a href="#contact" class="nav-link">संपर्क</a>
             </nav>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </header>
 
@@ -35,7 +41,7 @@
                         src="lottie/Kids.json"
                         background="transparent"
                         speed="1"
-                        style="width: 120px; height: 120px; margin: 0 auto;"
+                        style="width: 150px; height: 150px; margin: 0 auto;"
                         loop
                         autoplay>
                     </lottie-player>
@@ -43,10 +49,68 @@
                 <h1 class="hero-title">श्री जगदम्बा स्कूल में आपका स्वागत है</h1>
                 <p class="hero-subtitle">जहाँ शिक्षा, संस्कार और सफलता का मेल होता है</p>
                 <div class="hero-cta">
-                    <button class="cta-button">अधिक जानें</button>
+                    <a href="#about" class="cta-button">अधिक जानें</a>
                 </div>
             </div>
             <div class="hero-bg-overlay"></div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="section-title">हमारे बारे में</h2>
+                <div class="about-container">
+                    <div class="about-content animate-on-scroll">
+                        <h3>प्रिंसिपल का संदेश</h3>
+                        <p>श्री जगदम्बा स्कूल में हम प्रत्येक छात्र के सर्वांगीण विकास पर ध्यान देते हैं। हमारा उद्देश्य न केवल शैक्षणिक उत्कृष्टता प्राप्त करना है बल्कि बच्चों में नैतिक मूल्यों का विकास करना भी है। हमारी अनुभवी शिक्षक टीम आधुनिक शिक्षा पद्धतियों के साथ पारंपरिक मूल्यों का संयोजन करके छात्रों को भविष्य के लिए तैयार करती है।</p>
+                        <p>हमारे स्कूल में छात्र, शिक्षक और अभिभावक मिलकर एक मजबूत शिक्षा समुदाय का निर्माण करते हैं जो हर बच्चे के सफल भविष्य में योगदान देता है।</p>
+                    </div>
+                    <div class="about-image animate-on-scroll">
+                        <img src="Photoes/principal.jpg" alt="प्रिंसिपल">
+                        <h4>श्री [प्रिंसिपल का नाम]</h4>
+                        <p>प्रिंसिपल</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Facilities Section -->
+        <section id="facilities" class="facilities-section">
+            <div class="container">
+                <h2 class="section-title">हमारी सुविधाएं</h2>
+                <div class="facilities-grid">
+                    <div class="facility-card animate-on-scroll">
+                        <div class="facility-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                        <h4>आधुनिक कक्षाएँ</h4>
+                        <p>स्मार्ट बोर्ड और डिजिटल उपकरणों से सुसज्जित कक्षाएँ।</p>
+                    </div>
+                    <div class="facility-card animate-on-scroll">
+                        <div class="facility-icon"><i class="fas fa-laptop-code"></i></div>
+                        <h4>कंप्यूटर लैब</h4>
+                        <p>नवीनतम तकनीक और इंटरनेट सुविधा के साथ कंप्यूटर लैब।</p>
+                    </div>
+                    <div class="facility-card animate-on-scroll">
+                        <div class="facility-icon"><i class="fas fa-book-open-reader"></i></div>
+                        <h4>पुस्तकालय</h4>
+                        <p>ज्ञानवर्धक पुस्तकों और शांत अध्ययन वातावरण का केंद्र।</p>
+                    </div>
+                    <div class="facility-card animate-on-scroll">
+                        <div class="facility-icon"><i class="fas fa-shield-halved"></i></div>
+                        <h4>सुरक्षित परिसर</h4>
+                        <p>CCTV निगरानी और प्रशिक्षित सुरक्षाकर्मियों द्वारा संरक्षित।</p>
+                    </div>
+                    <div class="facility-card animate-on-scroll">
+                        <div class="facility-icon"><i class="fas fa-bus"></i></div>
+                        <h4>परिवहन सेवा</h4>
+                        <p>आस-पास के क्षेत्रों के लिए सुरक्षित और विश्वसनीय बस सेवा।</p>
+                    </div>
+                    <div class="facility-card animate-on-scroll">
+                        <div class="facility-icon"><i class="fas fa-futbol"></i></div>
+                        <h4>खेल का मैदान</h4>
+                        <p>शारीरिक विकास और खेल-कूद के लिए विशाल मैदान।</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Gallery Section -->
@@ -54,129 +118,29 @@
             <div class="container">
                 <h2 class="section-title">हमारी गैलरी</h2>
                 <div class="gallery-grid">
-                    <div class="gallery-item animate-on-scroll" data-image="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80">
-                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="कक्षा कक्ष">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-expand"></i>
-                        </div>
+                    <div class="gallery-item animate-on-scroll" data-image="Photoes/Partibha_smman.jpg">
+                        <img src="Photoes/Partibha_smman.jpg" alt="प्रतिभा सम्मान समारोह 1">
+                        <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
                     </div>
-                    <div class="gallery-item animate-on-scroll" data-image="https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80">
-                        <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="खेल का मैदान">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-expand"></i>
-                        </div>
+                    <div class="gallery-item animate-on-scroll" data-image="Photoes/Partibha_smman2.jpg">
+                        <img src="Photoes/Partibha_smman2.jpg" alt="प्रतिभा सम्मान समारोह 2">
+                        <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
                     </div>
-                    <div class="gallery-item animate-on-scroll" data-image="https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80">
-                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="पुस्तकालय">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-expand"></i>
-                        </div>
+                    <div class="gallery-item animate-on-scroll" data-image="Photoes/School_outer_look.jpg">
+                        <img src="Photoes/School_outer_look.jpg" alt="स्कूल का बाहरी दृश्य">
+                        <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
                     </div>
-                    <div class="gallery-item animate-on-scroll" data-image="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80">
-                        <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="प्रयोगशाला">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-expand"></i>
-                        </div>
+                    <div class="gallery-item animate-on-scroll" data-image="Photoes/Result.jpg">
+                        <img src="Photoes/Result.jpg" alt="परीक्षा परिणाम">
+                        <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
                     </div>
-                    <div class="gallery-item animate-on-scroll" data-image="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80">
-                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="स्कूल भवन">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-expand"></i>
-                        </div>
+                    <div class="gallery-item animate-on-scroll" data-image="Photoes/Partibha_smman3.jpg">
+                        <img src="Photoes/Partibha_smman3.jpg" alt="प्रतिभा सम्मान समारोह 3">
+                        <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
                     </div>
-                    <div class="gallery-item animate-on-scroll" data-image="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80">
-                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="सांस्कृतिक कार्यक्रम">
-                        <div class="gallery-overlay">
-                            <i class="fas fa-expand"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section with Facilities -->
-        <section id="about" class="about-section">
-            <div class="container">
-                <h2 class="section-title">हमारे बारे में</h2>
-                
-                <!-- About Cards Section -->
-                <div class="about-grid">
-                    <div class="about-card animate-on-scroll">
-                        <div class="card-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <h3>प्रिंसिपल का संदेश</h3>
-                        <p>श्री जगदम्बा स्कूल में हम प्रत्येक छात्र के सर्वांगीण विकास पर ध्यान देते हैं। हमारा उद्देश्य न केवल शैक्षणिक उत्कृष्टता प्राप्त करना है बल्कि बच्चों में नैतिक मूल्यों का विकास करना भी है।</p>
-                    </div>
-                    <div class="about-card animate-on-scroll">
-                        <div class="card-icon">
-                            <i class="fas fa-book-open"></i>
-                        </div>
-                        <h3>शैक्षणिक उत्कृष्टता</h3>
-                        <p>हमारी अनुभवी शिक्षक टीम आधुनिक शिक्षा पद्धतियों के साथ पारंपरिक मूल्यों का संयोजन करके छात्रों को भविष्य के लिए तैयार करती है।</p>
-                    </div>
-                    <div class="about-card animate-on-scroll">
-                        <div class="card-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h3>सहयोगी वातावरण</h3>
-                        <p>हमारे स्कूल में छात्र, शिक्षक और अभिभावक मिलकर एक मजबूत शिक्षा समुदाय का निर्माण करते हैं जो हर बच्चे के सफल भविष्य में योगदान देता है।</p>
-                    </div>
-                </div>
-
-                <!-- Facilities Section -->
-                <div class="facilities-section">
-                    <h3 class="facilities-title">हमारी सुविधाएं</h3>
-                    <div class="facilities-grid">
-                        <div class="facility-card animate-on-scroll">
-                            <div class="facility-icon">
-                                <span class="facility-emoji">🧑‍🏫</span>
-                            </div>
-                            <div class="facility-content">
-                                <h4>आधुनिक कक्षाएँ</h4>
-                                <p>हमारी कक्षाएँ स्मार्ट बोर्ड, प्रोजेक्टर और अन्य डिजिटल उपकरणों से सुसज्जित हैं, जिससे छात्रों को प्रभावी और रुचिकर शिक्षा मिलती है।</p>
-                            </div>
-                        </div>
-
-                        <div class="facility-card animate-on-scroll">
-                            <div class="facility-icon">
-                                <span class="facility-emoji">💻</span>
-                            </div>
-                            <div class="facility-content">
-                                <h4>कंप्यूटर व मीडिया सेंटर</h4>
-                                <p>तकनीकी ज्ञान को बढ़ावा देने के लिए स्कूल में कंप्यूटर लैब और मीडिया सेंटर की सुविधा उपलब्ध है, जहाँ छात्र डिजिटल कौशल विकसित करते हैं।</p>
-                            </div>
-                        </div>
-
-                        <div class="facility-card animate-on-scroll">
-                            <div class="facility-icon">
-                                <span class="facility-emoji">📚</span>
-                            </div>
-                            <div class="facility-content">
-                                <h4>पुस्तकालय</h4>
-                                <p>हमारे पुस्तकालय में ज्ञानवर्धक पुस्तकों, पत्रिकाओं और संदर्भ सामग्री का संग्रह है, जो विद्यार्थियों की अध्ययन आदत को प्रोत्साहित करता है।</p>
-                            </div>
-                        </div>
-
-                        <div class="facility-card animate-on-scroll">
-                            <div class="facility-icon">
-                                <span class="facility-emoji">🛡️</span>
-                            </div>
-                            <div class="facility-content">
-                                <h4>सुरक्षित परिसर</h4>
-                                <p>पूरा स्कूल परिसर CCTV कैमरों, सुरक्षाकर्मियों और संरक्षित गेट से सुरक्षित है, जिससे बच्चों को एक सुरक्षित और अनुशासित वातावरण मिलता है।</p>
-                            </div>
-                        </div>
-
-                        <div class="facility-card animate-on-scroll">
-                            <div class="facility-icon">
-                                <span class="facility-emoji">🚌</span>
-                            </div>
-                            <div class="facility-content">
-                                <h4>परिवहन सेवा</h4>
-                                <p>हम स्कूल से जुड़े गाँवों व कस्बों के लिए नियमित और सुरक्षित बस सुविधा प्रदान करते हैं, जिससे छात्रों की यात्रा सरल और सुरक्षित होती है।</p>
-                            </div>
-                        </div>
+                    <div class="gallery-item animate-on-scroll" data-image="Photoes/Director.jpg">
+                        <img src="Photoes/Director.jpg" alt="स्कूल निदेशक">
+                        <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
                     </div>
                 </div>
             </div>
@@ -188,44 +152,57 @@
                 <h2 class="section-title">संपर्क करें</h2>
                 <div class="contact-grid">
                     <div class="contact-card animate-on-scroll">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <h3>पता</h3>
                         <p>गांव ढढेरु भामूवान <br>बीदासर चुरू - 331802</p>
                     </div>
                     <div class="contact-card animate-on-scroll">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
                         <h3>फोन</h3>
-                        <p>+91-11-12345678<br>+91-98765-43210</p>
+                        <p><a href="tel:+911112345678">+91-11-12345678</a><br><a href="tel:+919876543210">+91-98765-43210</a></p>
                     </div>
                     <div class="contact-card animate-on-scroll">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                         <h3>ईमेल</h3>
-                        <p>info@shreejagadambaschool.com<br>admission@shreejagadambaschool.com</p>
+                        <p><a href="mailto:info@shreejagadambaschool.com">info@shreejagadambaschool.com</a><br><a href="mailto:admission@shreejagadambaschool.com">admission@shreejagadambaschool.com</a></p>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 श्री जगदम्बा स्कूल. सर्वाधिकार सुरक्षित।</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <!-- Mobile Bottom Navigation -->
-    <nav class="mobile-nav">
-        <div class="nav-item" data-section="home">
+    <nav class="mobile-bottom-nav" id="mobile-bottom-nav">
+        <a href="#home" class="mobile-nav-link active">
             <i class="fas fa-home"></i>
             <span>होम</span>
-        </div>
-        <div class="nav-item nav-center active" data-section="gallery">
-            <i class="fas fa-images"></i>
-        </div>
-        <div class="nav-item" data-section="about">
+        </a>
+        <a href="#about" class="mobile-nav-link">
             <i class="fas fa-info-circle"></i>
             <span>हमारे बारे में</span>
-        </div>
+        </a>
+        <a href="#gallery" class="mobile-nav-link">
+            <i class="fas fa-images"></i>
+            <span>गैलरी</span>
+        </a>
+        <a href="#contact" class="mobile-nav-link">
+            <i class="fas fa-phone"></i>
+            <span>संपर्क</span>
+        </a>
     </nav>
 
     <!-- Gallery Lightbox -->
@@ -233,7 +210,7 @@
         <div class="lightbox-content">
             <button class="lightbox-close">&times;</button>
             <button class="lightbox-prev">&#10094;</button>
-            <img class="lightbox-image" src="" alt="">
+            <img class="lightbox-image" src="" alt="गैलरी चित्र">
             <button class="lightbox-next">&#10095;</button>
         </div>
     </div>
