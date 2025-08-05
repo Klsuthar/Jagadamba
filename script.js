@@ -113,40 +113,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Scroll Animations --- //
+    // --- Scroll Animations using Intersection Observer --- //
     const scrollElements = document.querySelectorAll('.animate-on-scroll');
 
-    const elementInView = (el, dividend = 1) => {
-        const elementTop = el.getBoundingClientRect().top;
-        return (
-            elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
-        );
-    };
-
-    const displayScrollElement = (element) => {
-        element.classList.add('visible');
-    };
-
-    const hideScrollElement = (element) => {
-        element.classList.remove('visible');
-    };
-
-    const handleScrollAnimation = () => {
-        scrollElements.forEach((el) => {
-            if (elementInView(el, 1.25)) {
-                displayScrollElement(el);
-            } 
-            // Optional: to re-animate when scrolling up
-            // else {
-            //     hideScrollElement(el);
-            // }
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // Optional: unobserve the element after it has been animated
+                // observer.unobserve(entry.target);
+            }
         });
-    }
-
-    window.addEventListener('scroll', () => {
-        handleScrollAnimation();
+    }, { 
+        threshold: 0.1 // Trigger when 10% of the element is visible
     });
-    // Initial check
-    handleScrollAnimation();
+
+    scrollElements.forEach(el => {
+        observer.observe(el);
+    });
+
+    // Add a class to the body if JS is enabled, for fallback styles
+    document.body.classList.add('js-enabled');
 
 });
