@@ -254,14 +254,51 @@ section {
 }
 
 /* --- Facilities Section --- */
+.facilities-section {
+    position: relative;
+    overflow: hidden; /* To contain the pseudo-elements */
+    background-color: #f0f7ff; /* A very light, inviting blue */
+}
+
+.facilities-section::before, .facilities-section::after {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.7;
+}
+
+/* Decorative blob 1 */
+.facilities-section::before {
+    width: 400px;
+    height: 400px;
+    background-color: rgba(0, 86, 179, 0.1); /* Light primary color */
+    top: -100px;
+    left: -150px;
+}
+
+/* Decorative blob 2 */
+.facilities-section::after {
+    width: 500px;
+    height: 500px;
+    background-color: rgba(255, 193, 7, 0.1); /* Light secondary color */
+    bottom: -150px;
+    right: -200px;
+}
+
 .facilities-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
+    position: relative; /* To stay on top of the pseudo-elements */
+    z-index: 1;
 }
 
 .facility-card {
-    background-color: var(--white-color);
+    background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 30px;
     text-align: center;
     border-radius: var(--border-radius);
@@ -289,6 +326,79 @@ section {
     font-size: 1.3rem;
     margin-bottom: 10px;
     color: var(--primary-color);
+}
+
+/* --- Achievements Section --- */
+.achievements-section {
+    background: linear-gradient(135deg, #0056b3 0%, #003d82 100%);
+    color: var(--white-color);
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Adding some subtle geometric patterns */
+.achievements-section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    filter: blur(50px);
+}
+
+.achievements-section .section-title {
+    color: var(--white-color);
+}
+
+.achievements-section .section-title::after {
+    background-color: var(--secondary-color);
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.achievement-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 30px 20px;
+    border-radius: var(--border-radius);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.achievement-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.achievement-icon {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+    text-shadow: 0 0 15px rgba(255, 193, 7, 0.5);
+}
+
+.achievement-number {
+    font-family: var(--heading-font);
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.achievement-text {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 /* --- Gallery Section --- */
@@ -600,6 +710,10 @@ section {
 
 .animate-on-scroll.visible.animate-fade-in {
     animation: fadeIn 1s ease-out forwards;
+}
+
+.animate-on-scroll.visible.animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
 }
 
 /* Fallback for JS disabled */

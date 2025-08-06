@@ -132,6 +132,40 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
+    // --- Achievement Counter Animation --- //
+    const achievementNumbers = document.querySelectorAll('.achievement-number');
+
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const target = +el.getAttribute('data-target');
+                el.innerText = '0';
+
+                const updateCount = () => {
+                    const current = +el.innerText;
+                    const increment = target / 200; // Animation speed
+
+                    if (current < target) {
+                        el.innerText = `${Math.ceil(current + increment)}`;
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        el.innerText = target;
+                    }
+                };
+
+                updateCount();
+                observer.unobserve(el); // Animate only once
+            }
+        });
+    }, {
+        threshold: 0.5 // Start when 50% of the element is visible
+    });
+
+    achievementNumbers.forEach(num => {
+        counterObserver.observe(num);
+    });
+
     // Add a class to the body if JS is enabled, for fallback styles
     document.body.classList.add('js-enabled');
 
