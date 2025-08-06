@@ -278,6 +278,11 @@ section {
     font-size: 3rem;
     color: var(--primary-color);
     margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.facility-card:hover .facility-icon {
+    transform: scale(1.2) rotate(5deg);
 }
 
 .facility-card h4 {
