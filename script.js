@@ -9,21 +9,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // Toggle mobile navigation
     if (navToggle && mainNav) {
         navToggle.addEventListener('click', () => {
-            mainNav.classList.toggle('active');
-            navToggle.querySelector('i').classList.toggle('fa-bars');
-            navToggle.querySelector('i').classList.toggle('fa-times');
+            const isNavOpen = mainNav.classList.toggle('active');
+            navToggle.querySelector('i').className = isNavOpen ? 'fas fa-times' : 'fas fa-bars';
         });
     }
 
     // Close mobile nav when a link is clicked
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (mainNav.classList.contains('active')) {
-                mainNav.classList.remove('active');
-                navToggle.querySelector('i').classList.add('fa-bars');
-                navToggle.querySelector('i').classList.remove('fa-times');
-            }
-        });
+    mainNav.addEventListener('click', (e) => {
+        if (e.target.classList.contains('nav-link')) {
+            mainNav.classList.remove('active');
+            navToggle.querySelector('i').className = 'fas fa-bars';
+        }
     });
 
     // Add scrolled class to header
@@ -33,31 +29,33 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             mainHeader.classList.remove('scrolled');
         }
-    });
+    }, { passive: true });
 
     // Active nav link highlighting on scroll
     const sections = document.querySelectorAll('section[id]');
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
-    window.addEventListener('scroll', () => {
-        let scrollY = window.pageYOffset;
+    const navObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            const id = entry.target.getAttribute('id');
+            const navLink = document.querySelector(`.nav-link[href*=\'#${id}\']`);
+            const mobileNavLink = document.querySelector(`.mobile-nav-link[href*=\'#${id}\']`);
 
-        sections.forEach(current => {
-            const sectionHeight = current.offsetHeight;
-            const sectionTop = current.offsetTop - 100;
-            let sectionId = current.getAttribute('id');
+            if (entry.isIntersecting) {
+                navLinks.forEach(link => link.classList.remove('active'));
+                mobileNavLinks.forEach(link => link.classList.remove('active'));
 
-            let desktopLink = document.querySelector('.nav-link[href*=' + sectionId + ']');
-            let mobileLink = document.querySelector('.mobile-nav-link[href*=' + sectionId + ']');
-
-            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                if(desktopLink) desktopLink.classList.add('active');
-                if(mobileLink) mobileLink.classList.add('active');
+                if (navLink) navLink.classList.add('active');
+                if (mobileNavLink) mobileNavLink.classList.add('active');
             } else {
-                if(desktopLink) desktopLink.classList.remove('active');
-                if(mobileLink) mobileLink.classList.remove('active');
+                if (navLink) navLink.classList.remove('active');
+                if (mobileNavLink) mobileNavLink.classList.remove('active');
             }
         });
+    }, { rootMargin: '-50% 0px -50% 0px' });
+
+    sections.forEach(section => {
+        navObserver.observe(section);
     });
 
     // --- Gallery Lightbox --- //
