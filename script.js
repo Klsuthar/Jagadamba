@@ -1,6 +1,60 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Header & Navigation --- //
+    // --- Hero Slider --- //
+    const slides = document.querySelectorAll('.slide');
+    const indicators = document.querySelectorAll('.indicator');
+    const prevSlideBtn = document.querySelector('.prev-slide');
+    const nextSlideBtn = document.querySelector('.next-slide');
+    let currentSlide = 0;
+    let slideInterval;
+
+    function goToSlide(n) {
+        slides[currentSlide].classList.remove('active');
+        indicators[currentSlide].classList.remove('active');
+        currentSlide = (n + slides.length) % slides.length;
+        slides[currentSlide].classList.add('active');
+        indicators[currentSlide].classList.add('active');
+    }
+
+    function nextSlide() {
+        goToSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+        goToSlide(currentSlide - 1);
+    }
+
+    function startSlideShow() {
+        slideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+    }
+
+    function stopSlideShow() {
+        clearInterval(slideInterval);
+    }
+
+    if (prevSlideBtn && nextSlideBtn) {
+        prevSlideBtn.addEventListener('click', () => {
+            prevSlide();
+            stopSlideShow();
+            startSlideShow();
+        });
+
+        nextSlideBtn.addEventListener('click', () => {
+            nextSlide();
+            stopSlideShow();
+            startSlideShow();
+        });
+    }
+
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            goToSlide(index);
+            stopSlideShow();
+            startSlideShow();
+        });
+    });
+
+    startSlideShow();
     const mainHeader = document.getElementById('main-header');
     const navToggle = document.getElementById('nav-toggle');
     const mainNav = document.getElementById('main-nav');

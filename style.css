@@ -145,17 +145,39 @@ section {
     cursor: pointer;
 }
 
-/* --- Hero Section --- */
-.hero-section {
+/* --- Hero Slider Section --- */
+.hero-slider {
     height: 100vh;
+    position: relative;
+    overflow: hidden;
+    color: var(--white-color);
+}
+
+.slider-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: var(--white-color);
-    position: relative;
-    padding: 0;
-    background: url('Photoes/hero-bg.jpg') no-repeat center center/cover;
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 1;
 }
 
 .hero-bg-overlay {
@@ -164,24 +186,79 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 40, 85, 0.7);
+    background-color: rgba(0, 40, 85, 0.6);
 }
 
 .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
+    padding: 20px;
 }
 
 .hero-title {
     font-family: var(--heading-font);
     font-size: 3.5rem;
     margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
 }
 
 .hero-subtitle {
     font-size: 1.4rem;
     font-weight: 300;
     margin-bottom: 40px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 3;
+}
+
+.slider-nav button {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: var(--white-color);
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 15px;
+    margin: 0 20px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.slider-nav button:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.slider-indicators {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    gap: 10px;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.indicator.active {
+    background-color: var(--white-color);
+    border-color: var(--secondary-color);
 }
 
 .cta-button {

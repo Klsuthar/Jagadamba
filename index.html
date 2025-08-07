@@ -32,27 +32,48 @@
 
     <!-- Main Content -->
     <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero-section">
-            <div class="hero-content">
-                <div class="hero-animation animate-fade-in-down">
-                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-                    <lottie-player 
-                        src="lottie/Kids.json"
-                        background="transparent"
-                        speed="1"
-                        style="width: 150px; height: 150px; margin: 0 auto;"
-                        loop
-                        autoplay>
-                    </lottie-player>
+        <!-- Hero Slider Section -->
+        <section id="home" class="hero-slider">
+            <div class="slider-container">
+                <!-- Slide 1 -->
+                <div class="slide active" style="background-image: url('Photoes/hero-bg.jpg');">
+                    <div class="hero-bg-overlay"></div>
+                    <div class="hero-content">
+                        <h1 class="hero-title animate-fade-in-down">श्री जगदम्बा स्कूल में आपका स्वागत है</h1>
+                        <p class="hero-subtitle animate-fade-in-up">जहाँ शिक्षा, संस्कार और सफलता का मेल होता है</p>
+                        <div class="hero-cta animate-fade-in-up">
+                            <a href="#about" class="cta-button pulse-animation">अधिक जानें</a>
+                        </div>
+                    </div>
                 </div>
-                <h1 class="hero-title animate-fade-in-down">श्री जगदम्बा स्कूल में आपका स्वागत है</h1>
-                <p class="hero-subtitle animate-fade-in-up">जहाँ शिक्षा, संस्कार और सफलता का मेल होता है</p>
-                <div class="hero-cta animate-fade-in-up">
-                    <a href="#about" class="cta-button pulse-animation">अधिक जानें</a>
+                <!-- Slide 2 -->
+                <div class="slide" style="background-image: url('Photoes/School_outer_look.jpg');">
+                    <div class="hero-bg-overlay"></div>
+                    <div class="hero-content">
+                        <h1 class="hero-title">उत्कृष्ट शिक्षा का केंद्र</h1>
+                        <p class="hero-subtitle">एक उज्ज्वल भविष्य के लिए</p>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="slide" style="background-image: url('Photoes/Partibha_smman.jpg');">
+                    <div class="hero-bg-overlay"></div>
+                    <div class="hero-content">
+                        <h1 class="hero-title">प्रतिभा का सम्मान</h1>
+                        <p class="hero-subtitle">हर छात्र को प्रेरित करते हुए</p>
+                    </div>
                 </div>
             </div>
-            <div class="hero-bg-overlay"></div>
+            <!-- Slider Navigation -->
+            <div class="slider-nav">
+                <button class="prev-slide">&#10094;</button>
+                <button class="next-slide">&#10095;</button>
+            </div>
+            <!-- Slider Indicators -->
+            <div class="slider-indicators">
+                <button class="indicator active" data-slide-to="0"></button>
+                <button class="indicator" data-slide-to="1"></button>
+                <button class="indicator" data-slide-to="2"></button>
+            </div>
         </section>
 
         <!-- About Section -->
